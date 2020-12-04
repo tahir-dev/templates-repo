@@ -45,7 +45,7 @@
             "value": "nbadmin"
         },
         "adminPassword": {
-            "value": null
+            "value": "P@ssw0rd@222"
         },
         "patchMode": {
             "value": "AutomaticByOS"

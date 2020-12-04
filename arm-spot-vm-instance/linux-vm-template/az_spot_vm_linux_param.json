@@ -1,0 +1,101 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "uaenorth"
+        },
+        "networkInterfaceName": {
+            "value": "tahirlinuxvm235"
+        },
+        "enableAcceleratedNetworking": {
+            "value": true
+        },
+        "networkSecurityGroupId": {
+            "value": "/subscriptions/f61e933f-4019-4e30-872c-bd4baddaf7e7/resourceGroups/ae-nbu-rg/providers/Microsoft.Network/networkSecurityGroups/bkp_nsg"
+        },
+        "subnetName": {
+            "value": "bkp_subnet"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/f61e933f-4019-4e30-872c-bd4baddaf7e7/resourceGroups/ae-nbu-rg/providers/Microsoft.Network/virtualNetworks/bkp_vnet"
+        },
+        "publicIpAddressName": {
+            "value": "tahirlinuxvm-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "tahirlinuxvm"
+        },
+        "virtualMachineComputerName": {
+            "value": "tahirlinuxvm"
+        },
+        "virtualMachineRG": {
+            "value": "ae-nbu-rg"
+        },
+        "osDiskType": {
+            "value": "Standard_LRS"
+        },
+        "dataDisks": {
+            "value": [
+                {
+                    "lun": 0,
+                    "createOption": "attach",
+                    "caching": "ReadOnly",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "tahirlinuxvm_appDisk_0",
+                    "storageAccountType": null,
+                    "diskSizeGB": null,
+                    "diskEncryptionSet": null
+                },
+                {
+                    "lun": 1,
+                    "createOption": "attach",
+                    "caching": "ReadOnly",
+                    "writeAcceleratorEnabled": false,
+                    "id": null,
+                    "name": "tahirlinuxvm_msdpDisk_1",
+                    "storageAccountType": null,
+                    "diskSizeGB": null,
+                    "diskEncryptionSet": null
+                }
+            ]
+        },
+        "dataDiskResources": {
+            "value": [
+                {
+                    "name": "tahirlinuxvm_appDisk_0",
+                    "sku": "Standard_LRS",
+                    "properties": {
+                        "diskSizeGB": 64,
+                        "creationData": {
+                            "createOption": "empty"
+                        }
+                    }
+                },
+                {
+                    "name": "tahirlinuxvm_msdpDisk_1",
+                    "sku": "Standard_LRS",
+                    "properties": {
+                        "diskSizeGB": 256,
+                        "creationData": {
+                            "createOption": "empty"
+                        }
+                    }
+                }
+            ]
+        },
+        "virtualMachineSize": {
+            "value": "Standard_DS3_v2"
+        },
+        "adminUsername": {
+            "value": "nbadmin"
+        }
+    }
+}

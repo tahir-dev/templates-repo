@@ -74,7 +74,7 @@
             "value": "Standard_DS2_v2"
         },
         "adminUsername": {
-            "value": "nbadmin"
+            "value": "{{ nbu_username }}"
         },
         "adminPassword": {
             "value": "P@ssw0rd123"

@@ -1,0 +1,54 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "uaenorth"
+        },
+        "networkInterfaceName": {
+            "value": "azvmtahir1482"
+        },
+        "networkSecurityGroupId": {
+            "value": "/subscriptions/1abcd2d7-4ec7-467b-8805-e051086eb525/resourceGroups/ae-nbu-rg/providers/Microsoft.Network/networkSecurityGroups/bkp_nsg"
+        },
+        "subnetName": {
+            "value": "bkp_subnet"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/1abcd2d7-4ec7-467b-8805-e051086eb525/resourceGroups/ae-nbu-rg/providers/Microsoft.Network/virtualNetworks/bkp_vnet"
+        },
+        "publicIpAddressName": {
+            "value": "azvmtahir1-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "azvmtahir1"
+        },
+        "virtualMachineComputerName": {
+            "value": "azvmtahir1"
+        },
+        "virtualMachineRG": {
+            "value": "ae-nbu-rg"
+        },
+        "osDiskType": {
+            "value": "Standard_LRS"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_D2s_v3"
+        },
+        "adminUsername": {
+            "value": "nbadmin"
+        },
+        "adminPassword": {
+            "value": "P@ssw0rd@222"
+        },
+        "patchMode": {
+            "value": "AutomaticByOS"
+        }
+    }
+}

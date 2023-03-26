@@ -115,7 +115,7 @@
                 {
                     "type": "Microsoft.Compute/virtualMachines/extensions",
                     "name": "[concat(parameters('virtualMachineName'),'/WinRMCustomScriptExtension')]",
-                    "apiVersion": "2016-04-30-preview",
+                    "apiVersion": "2018-06-01",
                     "location": "[resourceGroup().location]",
                     "dependsOn": [
                       "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
@@ -123,12 +123,19 @@
                     "properties": {
                       "publisher": "Microsoft.Compute",
                       "type": "CustomScriptExtension",
-                      "typeHandlerVersion": "1.4",
+                      "typeHandlerVersion": "1.10",
+                      "autoUpgradeMinorVersion": true,
                       "settings": {
+                        "timestamp":123456789
+                      },
+                      "protectedSettings": {
+                        "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file ConfigureRemotingForAnsible.ps1",
+                        "storageAccountName": "myStorage account name",
+                        "storageAccountKey": "mystorageaccountkey",
+                        "managedIdentity": {},
                         "fileUris": [
                           "http://raw.githubusercontent.com/tahir-dev/templates-repo/main/ConfigureRemotingForAnsible.ps1"
-                        ],
-                        "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file ConfigureRemotingForAnsible.ps1"
+                        ]
                       }
                     }
                 }

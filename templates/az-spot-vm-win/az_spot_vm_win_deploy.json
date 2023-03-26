@@ -132,7 +132,6 @@
                         "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file ConfigureRemotingForAnsible.ps1",
                         "storageAccountName": "artifactory1",
                         "storageAccountKey": "nb+PlXxKW+3vVo6M9GRcGA2GQv00n7YBm7tppbw0z4UsbHIgYWJJ1LCZzn5Sl9Q8eEbn6+Zu3aL1+AStxPyaag==",
-                        "managedIdentity": {},
                         "fileUris": [
                           "https://artifactory1.blob.core.windows.net/docs2/ConfigureRemotingForAnsible.ps1"
                         ]

@@ -126,7 +126,7 @@
                       "typeHandlerVersion": "1.4",
                       "settings": {
                         "fileUris": [
-                          "https://raw.githubusercontent.com/tahir-dev/templates-repo/main/ConfigureRemotingForAnsible.ps1"
+                          "http://raw.githubusercontent.com/tahir-dev/templates-repo/main/ConfigureRemotingForAnsible.ps1"
                         ],
                         "commandToExecute": "powershell -ExecutionPolicy Unrestricted -file ConfigureRemotingForAnsible.ps1"
                       }

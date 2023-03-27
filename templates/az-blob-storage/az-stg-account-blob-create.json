@@ -1,0 +1,254 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string"
+        },
+        "storageAccountName": {
+            "type": "string"
+        },
+        "accountType": {
+            "type": "string"
+        },
+        "kind": {
+            "type": "string"
+        },
+        "accessTier": {
+            "type": "string"
+        },
+        "minimumTlsVersion": {
+            "type": "string"
+        },
+        "supportsHttpsTrafficOnly": {
+            "type": "bool"
+        },
+        "publicNetworkAccess": {
+            "type": "string"
+        },
+        "allowBlobPublicAccess": {
+            "type": "bool"
+        },
+        "allowSharedKeyAccess": {
+            "type": "bool"
+        },
+        "allowCrossTenantReplication": {
+            "type": "bool"
+        },
+        "defaultOAuth": {
+            "type": "bool"
+        },
+        "allowedCopyScope": {
+            "type": "string"
+        },
+        "networkAclsBypass": {
+            "type": "string"
+        },
+        "networkAclsDefaultAction": {
+            "type": "string"
+        },
+        "networkAclsVirtualNetworkRules": {
+            "type": "array"
+        },
+        "dnsEndpointType": {
+            "type": "string"
+        },
+        "keySource": {
+            "type": "string"
+        },
+        "encryptionEnabled": {
+            "type": "bool"
+        },
+        "keyTypeForTableAndQueueEncryption": {
+            "type": "string"
+        },
+        "infrastructureEncryptionEnabled": {
+            "type": "bool"
+        },
+        "isContainerRestoreEnabled": {
+            "type": "bool"
+        },
+        "isBlobSoftDeleteEnabled": {
+            "type": "bool"
+        },
+        "blobSoftDeleteRetentionDays": {
+            "type": "int"
+        },
+        "isContainerSoftDeleteEnabled": {
+            "type": "bool"
+        },
+        "containerSoftDeleteRetentionDays": {
+            "type": "int"
+        },
+        "changeFeed": {
+            "type": "bool"
+        },
+        "isVersioningEnabled": {
+            "type": "bool"
+        },
+        "isShareSoftDeleteEnabled": {
+            "type": "bool"
+        },
+        "shareSoftDeleteRetentionDays": {
+            "type": "int"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "apiVersion": "2018-05-01",
+            "type": "Microsoft.Resources/deployments",
+            "name": "virtualNetworks_0.17332672986065645",
+            "subscriptionId": "1abcd2d7-4ec7-467b-8805-e051086eb525",
+            "resourceGroup": "westus3-ansible-rg",
+            "dependsOn": [],
+            "resources": [],
+            "properties": {
+                "mode": "Incremental",
+                "parameters": {},
+                "template": {
+                    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "apiVersion": "2021-01-01",
+                            "name": "bkp_vnet",
+                            "type": "Microsoft.Network/virtualNetworks",
+                            "location": "westus3",
+                            "properties": {
+                                "provisioningState": "Succeeded",
+                                "resourceGuid": "69d7c5a3-b84b-43f4-9ad3-40d4cad96327",
+                                "addressSpace": {
+                                    "addressPrefixes": [
+                                        "10.0.0.0/16"
+                                    ]
+                                },
+                                "subnets": [
+                                    {
+                                        "name": "bkp_subnet",
+                                        "id": "/subscriptions/1abcd2d7-4ec7-467b-8805-e051086eb525/resourceGroups/westus3-ansible-rg/providers/Microsoft.Network/virtualNetworks/bkp_vnet/subnets/bkp_subnet",
+                                        "etag": "W/\"cb47be2e-d71b-4796-8005-ffeaedb76a58\"",
+                                        "properties": {
+                                            "provisioningState": "Succeeded",
+                                            "addressPrefix": "10.0.1.0/24",
+                                            "delegations": [],
+                                            "privateEndpointNetworkPolicies": "Enabled",
+                                            "privateLinkServiceNetworkPolicies": "Enabled",
+                                            "serviceEndpoints": [
+                                                {
+                                                    "service": "Microsoft.Storage"
+                                                }
+                                            ]
+                                        },
+                                        "type": "Microsoft.Network/virtualNetworks/subnets"
+                                    }
+                                ],
+                                "virtualNetworkPeerings": [],
+                                "enableDdosProtection": false
+                            },
+                            "tags": {
+                                "name": "nb-storage-account-blob"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        },
+        {
+            "name": "[parameters('storageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2022-05-01",
+            "location": "[parameters('location')]",
+            "properties": {
+                "accessTier": "[parameters('accessTier')]",
+                "minimumTlsVersion": "[parameters('minimumTlsVersion')]",
+                "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]",
+                "publicNetworkAccess": "[parameters('publicNetworkAccess')]",
+                "allowBlobPublicAccess": "[parameters('allowBlobPublicAccess')]",
+                "allowSharedKeyAccess": "[parameters('allowSharedKeyAccess')]",
+                "allowCrossTenantReplication": "[parameters('allowCrossTenantReplication')]",
+                "defaultToOAuthAuthentication": "[parameters('defaultOAuth')]",
+                "allowedCopyScope": "[parameters('allowedCopyScope')]",
+                "networkAcls": {
+                    "bypass": "[parameters('networkAclsBypass')]",
+                    "defaultAction": "[parameters('networkAclsDefaultAction')]",
+                    "ipRules": [],
+                    "virtualNetworkRules": "[parameters('networkAclsVirtualNetworkRules')]"
+                },
+                "dnsEndpointType": "[parameters('dnsEndpointType')]",
+                "encryption": {
+                    "keySource": "[parameters('keySource')]",
+                    "services": {
+                        "blob": {
+                            "enabled": "[parameters('encryptionEnabled')]"
+                        },
+                        "file": {
+                            "enabled": "[parameters('encryptionEnabled')]"
+                        },
+                        "table": {
+                            "enabled": "[parameters('encryptionEnabled')]"
+                        },
+                        "queue": {
+                            "enabled": "[parameters('encryptionEnabled')]"
+                        }
+                    },
+                    "requireInfrastructureEncryption": "[parameters('infrastructureEncryptionEnabled')]"
+                }
+            },
+            "dependsOn": [
+                "Microsoft.Resources/deployments/virtualNetworks_0.17332672986065645"
+            ],
+            "sku": {
+                "name": "[parameters('accountType')]"
+            },
+            "kind": "[parameters('kind')]",
+            "tags": {
+                "name": "nb-storage-account-blob"
+            }
+        },
+        {
+            "name": "[concat(parameters('storageAccountName'), '/default')]",
+            "type": "Microsoft.Storage/storageAccounts/blobServices",
+            "apiVersion": "2022-05-01",
+            "properties": {
+                "restorePolicy": {
+                    "enabled": "[parameters('isContainerRestoreEnabled')]"
+                },
+                "deleteRetentionPolicy": {
+                    "enabled": "[parameters('isBlobSoftDeleteEnabled')]",
+                    "days": "[parameters('blobSoftDeleteRetentionDays')]"
+                },
+                "containerDeleteRetentionPolicy": {
+                    "enabled": "[parameters('isContainerSoftDeleteEnabled')]",
+                    "days": "[parameters('containerSoftDeleteRetentionDays')]"
+                },
+                "changeFeed": {
+                    "enabled": "[parameters('changeFeed')]"
+                },
+                "isVersioningEnabled": "[parameters('isVersioningEnabled')]"
+            },
+            "dependsOn": [
+                "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]"
+            ]
+        },
+        {
+            "name": "[concat(parameters('storageAccountName'), '/default')]",
+            "type": "Microsoft.Storage/storageAccounts/fileservices",
+            "apiVersion": "2022-05-01",
+            "properties": {
+                "shareDeleteRetentionPolicy": {
+                    "enabled": "[parameters('isShareSoftDeleteEnabled')]",
+                    "days": "[parameters('shareSoftDeleteRetentionDays')]"
+                }
+            },
+            "dependsOn": [
+                "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
+                "[concat(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '/blobServices/default')]"
+            ]
+        }
+    ],
+    "outputs": {}
+}

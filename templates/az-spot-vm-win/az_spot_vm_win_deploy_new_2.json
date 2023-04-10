@@ -173,34 +173,6 @@
                     "maxPrice": -1
                 }
             }
-        },
-        {
-            "name": "Microsoft.CustomScriptExtension",
-            "apiVersion": "2015-01-01",
-            "type": "Microsoft.Resources/deployments",
-            "properties": {
-                "mode": "incremental",
-                "templateLink": {
-                    "uri": "https://catalogartifact.azureedge.net/publicartifacts/Microsoft.CustomScriptExtension-arm-2.0.57/MainTemplate.json"
-                },
-                "parameters": {
-                    "fileUris": {
-                        "value": "https://artifactory1.blob.core.windows.net/docs2/ConfigureRemotingForAnsible.ps1?sp=r&st=2023-04-10T02:01:20Z&se=2023-04-10T10:01:20Z&sv=2021-12-02&sr=b&sig=iIHOMyE365a6orh8BFFJieaB%2B7PP8BY%2BGVrzFLUK%2BKM%3D"
-                    },
-                    "arguments": {
-                        "value": "-ExecutionPolicy Unrestricted -file ConfigureRemotingForAnsible.ps1"
-                    },
-                    "vmName": {
-                        "value": "winclient1"
-                    },
-                    "location": {
-                        "value": "westus3"
-                    }
-                }
-            },
-            "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
-            ]
         }
     ],
     "outputs": {

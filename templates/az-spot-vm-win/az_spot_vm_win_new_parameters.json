@@ -1,0 +1,69 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "westus3"
+        },
+        "networkInterfaceName": {
+            "value": "winclient2472"
+        },
+        "enableAcceleratedNetworking": {
+            "value": true
+        },
+        "networkSecurityGroupId": {
+            "value": "/subscriptions/1abcd2d7-4ec7-467b-8805-e051086eb525/resourceGroups/westus3-ansible-rg/providers/Microsoft.Network/networkSecurityGroups/bkp_nsg"
+        },
+        "subnetName": {
+            "value": "bkp_subnet"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/1abcd2d7-4ec7-467b-8805-e051086eb525/resourceGroups/westus3-ansible-rg/providers/Microsoft.Network/virtualNetworks/bkp_vnet"
+        },
+        "publicIpAddressName": {
+            "value": "winclient2-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Static"
+        },
+        "publicIpAddressSku": {
+            "value": "Standard"
+        },
+        "pipDeleteOption": {
+            "value": "Delete"
+        },
+        "virtualMachineName": {
+            "value": "winclient2"
+        },
+        "virtualMachineComputerName": {
+            "value": "winclient2"
+        },
+        "virtualMachineRG": {
+            "value": "westus3-ansible-rg"
+        },
+        "osDiskType": {
+            "value": "Standard_LRS"
+        },
+        "osDiskDeleteOption": {
+            "value": "Delete"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_DS1_v2"
+        },
+        "nicDeleteOption": {
+            "value": "Delete"
+        },
+        "adminUsername": {
+            "value": "nbadmin"
+        },
+        "adminPassword": {
+            "value": null
+        },
+        "patchMode": {
+            "value": "AutomaticByOS"
+        },
+        "enableHotpatching": {
+            "value": false
+        }
+    }
+}

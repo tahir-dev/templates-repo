@@ -84,7 +84,8 @@
                                 "id": "[variables('subnetRef')]"
                             },
                             "privateIPAllocationMethod": "Dynamic"
-                        }
+                        },
+                        "primary": true
                     },
                     {
                         "name": "ipconfig2",
